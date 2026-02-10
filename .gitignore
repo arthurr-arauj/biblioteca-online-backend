@@ -1,0 +1,26 @@
+
+```gitignore
+# Java
+*.class
+
+# Maven
+/target
+!.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+/build
+
+# Logs
+*.log
+
+# IDEs
+.idea
+*.iml
+.vscode
+.eclipse
+.project
+.classpath
+
+# OS
+.DS_Store
+Thumbs.db
