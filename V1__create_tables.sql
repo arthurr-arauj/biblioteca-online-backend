@@ -10,10 +10,6 @@ CREATE TABLE livros (
     genero VARCHAR(100),
     ano_publicacao INTEGER,
     isbn VARCHAR(20) UNIQUE,
-    usuario_id INTEGER,
-    CONSTRAINT fk_livros_usuario
-        FOREIGN KEY (usuario_id)
-        REFERENCES usuarios(id)
 );
 
 CREATE TABLE usuario_livro (
@@ -26,8 +22,6 @@ CREATE TABLE usuario_livro (
     data_fim DATE,
 
     CONSTRAINT fk_usuario_livro_usuario
-        FOREIGN KEY (usuario_id)
-        REFERENCES usuarios(id),
 
     CONSTRAINT fk_usuario_livro_livro
         FOREIGN KEY (livro_id)
