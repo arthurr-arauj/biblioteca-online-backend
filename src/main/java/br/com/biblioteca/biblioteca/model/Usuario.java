@@ -1,5 +1,6 @@
 package br.com.biblioteca.biblioteca.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class Usuario {
     private String nome;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Livro> livros;
 
     
