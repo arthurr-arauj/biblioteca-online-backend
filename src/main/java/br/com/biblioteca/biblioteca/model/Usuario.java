@@ -17,9 +17,7 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Livro> livros;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<UsuarioLivro> usuarioLivros;
-
+    
     public Usuario() {}
 
     public Usuario(String nome) {
@@ -48,13 +46,5 @@ public class Usuario {
 
     public void setLivros(List<Livro> livros) {
         this.livros = livros;
-    }
-
-    public List<UsuarioLivro> getUsuarioLivros() {
-        return usuarioLivros;
-    }
-
-    public void setUsuarioLivros(List<UsuarioLivro> usuarioLivros) {
-        this.usuarioLivros = usuarioLivros;
     }
 }

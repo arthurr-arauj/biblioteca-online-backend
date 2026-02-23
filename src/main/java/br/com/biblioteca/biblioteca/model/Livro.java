@@ -30,9 +30,7 @@ public class Livro {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "livro", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<UsuarioLivro> usuarioLivros;
-
+    
     public Livro() {}
 
     public Livro(String titulo, String autor, String genero, Integer anoPublicacao, String isbn, Usuario usuario) {
@@ -98,13 +96,5 @@ public class Livro {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }
-
-    public List<UsuarioLivro> getUsuarioLivros() {
-        return usuarioLivros;
-    }
-
-    public void setUsuarioLivros(List<UsuarioLivro> usuarioLivros) {
-        this.usuarioLivros = usuarioLivros;
     }
 }
