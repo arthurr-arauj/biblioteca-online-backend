@@ -3,10 +3,11 @@ package br.com.biblioteca.biblioteca.service;
 import br.com.biblioteca.biblioteca.model.Usuario;
 import br.com.biblioteca.biblioteca.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UsuarioService {
@@ -20,16 +21,11 @@ public class UsuarioService {
 
     public Usuario buscarUsuario(Long id) {
         return usuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado com ID: " + id));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado com ID: " + id));
     }
 
     public List<Usuario> listarUsuarios() {
         return usuarioRepository.findAll();
-    }
-
-    public List<Object> buscarLivrosDoUsuario(Long id) {
-        Usuario usuario = buscarUsuario(id);
-        return usuarioRepository.findLivrosByUsuarioId(id);
     }
 
     public Usuario atualizarUsuario(Long id, Usuario usuario) {

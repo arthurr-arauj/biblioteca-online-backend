@@ -33,12 +33,6 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarios);
     }
 
-    @GetMapping("/{id}/livros")
-    public ResponseEntity<List<Object>> buscarLivrosDoUsuario(@PathVariable Long id) {
-        List<Object> livros = usuarioService.buscarLivrosDoUsuario(id);
-        return ResponseEntity.ok(livros);
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<Usuario> atualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
         Usuario usuarioAtualizado = usuarioService.atualizarUsuario(id, usuario);
