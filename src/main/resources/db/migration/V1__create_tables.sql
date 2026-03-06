@@ -9,11 +9,8 @@ CREATE TABLE livros (
     autor VARCHAR(150) NOT NULL,
     genero VARCHAR(100),
     ano_publicacao INTEGER,
-    isbn VARCHAR(20) UNIQUE,
-    usuario_id INTEGER,
-    CONSTRAINT fk_livros_usuario
-        FOREIGN KEY (usuario_id)
-        REFERENCES usuarios(id)
+    isbn VARCHAR(20) UNIQUE
+    -- REMOVIDO: usuario_id e a chave estrangeira
 );
 
 CREATE TABLE usuario_livro (
@@ -24,6 +21,7 @@ CREATE TABLE usuario_livro (
     avaliacao INTEGER,
     data_inicio DATE,
     data_fim DATE,
+    resenha VARCHAR(500), -- ADICIONADO: Nova coluna para o campo de resenha q criei
 
     CONSTRAINT fk_usuario_livro_usuario
         FOREIGN KEY (usuario_id)
