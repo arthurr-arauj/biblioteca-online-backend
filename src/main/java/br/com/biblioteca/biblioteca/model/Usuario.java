@@ -17,7 +17,7 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
-    private List<Livro> livros;
+    private List<UsuarioLivro> usuarioLivros;
 
     
     public Usuario() {}
@@ -42,11 +42,11 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public List<Livro> getLivros() {
-        return livros;
+    public List<UsuarioLivro> getUsuarioLivros() {
+        return usuarioLivros;
     }
 
-    public void setLivros(List<Livro> livros) {
-        this.livros = livros;
+    public void setUsuarioLivros(List<UsuarioLivro> usuarioLivros) {
+        this.usuarioLivros = usuarioLivros;
     }
 }

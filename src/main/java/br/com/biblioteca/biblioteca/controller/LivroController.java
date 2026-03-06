@@ -33,12 +33,6 @@ public class LivroController {
         return ResponseEntity.ok(livro);
     }
 
-    @GetMapping("/usuario/{usuarioId}")
-    public ResponseEntity<List<Livro>> buscarLivrosPorUsuario(@PathVariable Long usuarioId) {
-        List<Livro> livros = livroService.buscarLivrosPorUsuario(usuarioId);
-        return ResponseEntity.ok(livros);
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<Livro> atualizarLivro(@PathVariable Long id, @RequestBody Livro livro) {
         Livro livroAtualizado = livroService.atualizarLivro(id, livro);
